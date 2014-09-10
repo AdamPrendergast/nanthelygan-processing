@@ -7,17 +7,21 @@ public class Spiral {
 	private PApplet _parent;
 	private int _centerX;
 	private int _centerY;
-	private float _spiralAngleLength;
+	private float _startAngle;
+	private float _endAngle;
+	private float _angleStep;
 	private float _initialRadius;
 	private float _radiusIncrement;
 	private boolean _enableNoise;
 	private float _radiusNoise;
 
-	Spiral(PApplet parent, int centerX, int centerY, float spiralAngleLength, float initialRadius, float radiusIncrement) {
+	Spiral(PApplet parent, int centerX, int centerY, float startAngle, float endAngle, float angleStep, float initialRadius, float radiusIncrement) {
 		_parent = parent;
 		_centerX = centerX;
 		_centerY = centerY;
-		_spiralAngleLength = spiralAngleLength;
+		_startAngle = startAngle;
+		_endAngle = endAngle;
+		_angleStep = angleStep;
 		_initialRadius = initialRadius;
 		_radiusIncrement = radiusIncrement;
 		_enableNoise = false;
@@ -29,7 +33,7 @@ public class Spiral {
 		float x, y;
 		float lastX = -999;
 		float lastY = -999;
-		for (float angle = 0; angle <= _spiralAngleLength; angle += 5) {
+		for (float angle = _startAngle; angle <= _endAngle; angle += _angleStep) {
 			radius += _radiusIncrement;
 			float thisRadius = CalculateRadius(radius);
 			float rad = _parent.radians(angle);

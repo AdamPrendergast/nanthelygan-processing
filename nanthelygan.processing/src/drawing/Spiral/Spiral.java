@@ -15,16 +15,16 @@ public class Spiral {
 	private boolean _enableNoise;
 	private float _radiusNoise;
 
-	Spiral(PApplet parent, int centerX, int centerY, float startAngle, float endAngle, float angleStep, float initialRadius, float radiusIncrement) {
+	public Spiral(PApplet parent, SpiralSettings settings) {
 		_parent = parent;
-		_centerX = centerX;
-		_centerY = centerY;
-		_startAngle = startAngle;
-		_endAngle = endAngle;
-		_angleStep = angleStep;
-		_initialRadius = initialRadius;
-		_radiusIncrement = radiusIncrement;
-		_enableNoise = false;
+		_centerX = settings.CenterX;
+		_centerY = settings.CenterY;
+		_startAngle = settings.StartAngle;
+		_endAngle = settings.EndAngle;
+		_angleStep = settings.AngleStep;
+		_initialRadius = settings.InitialRadius;
+		_radiusIncrement = settings.RadiusIncrement;
+		_enableNoise = settings.EnableNoise;
 		_radiusNoise = _parent.random(10);
 	}
 
